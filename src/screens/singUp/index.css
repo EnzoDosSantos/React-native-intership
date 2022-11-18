@@ -1,0 +1,97 @@
+.main-container {
+    background: linear-gradient(135deg, #AC53FF 0%, #4439FF 100%);
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    box-sizing: border-box;
+    padding: 5%;
+}
+
+.logo-image{
+    width: 250px;
+    height: 50px;
+}
+
+.login-wrapper{
+    background-color: #f2f2f2;
+    box-shadow: 0px 6px 24px rgba(29, 31, 38, 0.15);
+    border-radius: 20px;
+    box-sizing: border-box;
+    padding: 10%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: space-evenly;
+}
+
+.text-container > h1 {
+    font-weight: 600;
+    color: rgba(29, 31, 38, 0.8);
+}
+
+.text-container > span {
+    font-weight: 400;
+    color: rgba(29, 31, 38, 0.8);
+}
+
+.text-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+
+.form-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+
+.form-container > div > input {
+    outline: none;
+    border: none;
+    padding: 20px;
+    background: rgba(165, 174, 189, 0.1);
+}
+.form-container > div > input::placeholder {
+    color: #A5AEBD;
+}
+
+.form-container > div > span {
+    color: #FF0044;
+}
+
+.form-container > div {
+    display: flex;
+    flex-direction: column;
+}
+
+
+.form-container > button {
+    outline: none;
+    border: none;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #2F7BFF;
+    box-shadow: 0px 8px 24px -4px rgba(47, 123, 255, 0.5);
+    border-radius: 12px;
+    color: #f2f2f2;
+}
+
+.form-container > button:hover {
+    box-shadow: 0px 8px 24px -4px #2F7BFF;
+}
+
+.form-container > button:active {
+    background: #0057FF;
+}

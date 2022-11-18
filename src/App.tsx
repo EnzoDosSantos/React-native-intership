@@ -1,9 +1,18 @@
-import { useState } from "react";
+import useAuth from "./context/Context";
+import SignUp from "./screens/singUp/SingUp";
+import Home from "./screens/home/Home";
 
 function App() {
-  const [user, setUser] = useState();
+  const {user} = useAuth()
+  return (
 
-  return user ? <div>Profile TBD</div> : <div>Login TBD</div>;
+    // Surely occupying children and making a reusable component is the best option, since the background and logo are always the same.
+    !user ? (
+      <SignUp/>
+    ) : (
+      <Home/>
+    )
+  )
 }
 
 export default App;
