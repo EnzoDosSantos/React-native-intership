@@ -26,9 +26,9 @@ const SignUp = () => {
                     <h1>Welcome, Stranger!</h1>
                     <span>Please log in to this form if you wish to pass the exam.</span>
                 </div>
-                <form className="form-container" onSubmit={handleSubmit(onSubmit)}>
+                <form className="form-container" autoComplete="off" onSubmit={handleSubmit(onSubmit)}>
                     <div>
-                        <input {...register("email", {
+                        <input className={errors.email ? "input error-email" : "input"} {...register("email", {
                             required: "Incorrect email.", pattern: {
                                 value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
                                 message: "Incorrect email structure."
@@ -43,7 +43,7 @@ const SignUp = () => {
                         }
                     </div>
                     <div>
-                        <input {...register("password", {
+                        <input className={errors.password ? "input error-password" : "input"} {...register("password", {
                             required: "Incorrect password.", minLength: {
                                 value: 4,
                                 message: "Minimum length is 4."
