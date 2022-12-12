@@ -1,6 +1,6 @@
 import useAuth from "./context/Context";
-import SignUp from "./screens/singUp/SingUp";
-import Home from "./screens/home/Home";
+import SignIn from "./screens/singIn/singIn";
+import Home from "./screens/home/home";
 
 function App() {
   const {user} = useAuth()
@@ -8,7 +8,7 @@ function App() {
 
     // Surely occupying children and making a reusable component is the best option, since the background and logo are always the same.
     !user ? (
-      <SignUp/>
+      <SignIp/>
     ) : (
       <Home/>
     )

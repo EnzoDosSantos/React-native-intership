@@ -9,8 +9,8 @@ type Inputs = {
     password: string,
 };
 
-const SignUp = () => {
-    const { error, signIn, loading } = useAuth()
+const SignIn = () => {
+    const { isError, signIn, isLoading } = useAuth()
 
     const { register, handleSubmit, formState: { errors } } = useForm<Inputs>()
 
@@ -33,7 +33,7 @@ const SignUp = () => {
                                 value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
                                 message: "Incorrect email structure."
                             }
-                        })} type="text" placeholder="Email" />
+                        })} type="email" placeholder="Email" />
                         {
                             errors.email && (
                                 <span>
@@ -57,9 +57,9 @@ const SignUp = () => {
                             )
                         }
                     </div>
-                    <button type="submit">{loading ? <img src={loader} alt="loading" /> : <span>Login →</span>}</button>
+                    <button type="submit">{isLoading ? <img src={loader} alt="loading" /> : <span>Login →</span>}</button>
                     {
-                        error && (
+                        isError && (
                             <span>
                             {error.error}
                             </span>
@@ -71,4 +71,4 @@ const SignUp = () => {
     )
 }
 
-export default SignUp
+export default SignIn

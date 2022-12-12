@@ -5,7 +5,7 @@ import loader from "../../assets/loader.svg"
 import "./index.css"
 
 const Home = () => {
-    const { user, loading, logout } = useAuth()
+    const { user, isLoading, logout } = useAuth()
     return (
         <main className="home-container">
             <img className="logo-image" src={logo} alt="Logo image" />
@@ -15,7 +15,7 @@ const Home = () => {
                     <span>That’s it, {user?.name}!</span>
                     <button onClick={logout}>
                         {
-                        loading ? 
+                        isLoading ? 
                         <img src={loader} alt="loader" />
                         :
                         <>

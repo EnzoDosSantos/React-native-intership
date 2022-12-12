@@ -32,11 +32,11 @@ interface AuthProviderProps {
 
 export const AuthProvider = ({ children }: AuthProviderProps) => {
     const [user, setUser] = useState<User | null>(null)
-    const [error, setError] = useState(null)
-    const [loading, setLoading] = useState(false)
+    const [Iserror, setIsError] = useState(null)
+    const [isLoading, setIsLoading] = useState(false)
 
     useEffect(() => {
-        setError(null)
+        setIsError(null)
         const res = window.localStorage.getItem("User")
         if(res !== "undefined" && res){
             const data = JSON.parse(res)
@@ -47,33 +47,33 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     useEffect(() => {
         if(error){
             setTimeout(() => {
-                setError(null)
+                setIsError(null)
             },2000)
         }
     },[error])
 
     const signIn = async (email: string, password: string) => {
-        setLoading(true)
-        setError(null)
+        setIsLoading(true)
+        setIsError(null)
         try {
             const { data } : any = await login(email, password)
             setUser(data)
             window.localStorage.setItem("User", JSON.stringify(data))
             setLoading(false)
         } catch (error : any) {
-            setLoading(false)
+            setIsLoading(false)
             setUser(null)
-            setError(error)
+            setIsError(error)
         }
     }
     const logout = () => {
-        setLoading(true)
+        setIsLoading(true)
         setUser(null)
-        setError(null)
+        setIsError(null)
         window.localStorage.removeItem("User")
-        setLoading(false)
+        setIsLoading(false)
     }
-    const memoedValue = useMemo(() => ({user, error, loading, signIn, logout}), [user, error, loading])
+    const memoedValue = useMemo(() => ({user, isError, isLoading, signIn, logout}), [user, error, isLoading])
 
     return (
         <AuthContext.Provider value={memoedValue}>
