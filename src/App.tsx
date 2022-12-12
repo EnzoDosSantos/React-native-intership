@@ -8,7 +8,7 @@ function App() {
 
     // Surely occupying children and making a reusable component is the best option, since the background and logo are always the same.
     !user ? (
-      <SignIp/>
+      <SignIn/>
     ) : (
       <Home/>
     )
